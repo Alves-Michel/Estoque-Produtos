@@ -1,0 +1,30 @@
+package conection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Conection {
+
+    private static final String url = "jdbc:mysql://localhost:3306/product";
+    private static final String user = "root";
+    private static final String password = "root";
+    private static Connection conn;
+
+    public Conection() {
+    }
+
+    public static Connection getConexao() {
+        try {
+            if (conn == null) {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/product", "root", "root");
+                return conn;
+            } else {
+                return conn;
+            }
+        } catch (SQLException var1) {
+            var1.printStackTrace();
+            return null;
+        }
+    }
+}
